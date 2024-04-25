@@ -39,6 +39,10 @@ For local environment:
 - Native CSS
 - Native Javascript
 
+## General bases
+
+- To make the modal I based myself on this [codepen example](https://codepen.io/rajanchaudhari08/pen/QWoJmoE)
+
 ## API Anime One Piece
 
 [API One Piece](https://api-onepiece.com/en)
