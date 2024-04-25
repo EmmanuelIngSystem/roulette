@@ -15,6 +15,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/alerts.css">
     <title>Roulette Version 1</title>
 </head>
 <body>
@@ -28,7 +31,12 @@
         echo $objInsertHtml->resultHtml;
     ?>
     </div>
+    <?php
+        echo $objInsertHtml->modaltHtml;
+    ?>
+
     <!-- HTML of Roulette Wheel -->
     <script src="js/index.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>
