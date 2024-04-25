@@ -12,19 +12,24 @@ function toggleModal(element)
     body.classList.toggle('open-modal');
 
     // Check if the container modal is hidden or not
+    checkModalContianer(modalContainer, modalWindow);
+    animationModal(cardContainer, modalWindow, 'card-container-in 1s both', 'modal-window-in 1s both');
+}
+
+function checkModalContianer(modalContainer, modalWindow)
+{
     if(modalContainer.style.visibility == 'hidden' && modalContainer.style.opacity == '0' 
         || 
         modalContainer.style.visibility == '' && modalContainer.style.opacity == '')
     {
-        showModal(modalContainer, modalWindow, 'visible', '1', 'block');
+        setModal(modalContainer, modalWindow, 'visible', '1', 'block');
     }else
     {
-        showModal(modalContainer, modalWindow, 'hidden', '0', 'none');
+        setModal(modalContainer, modalWindow, 'hidden', '0', 'none');
     }
-    animationModal(cardContainer, modalWindow, 'card-container-in 1s both', 'modal-window-in 1s both');
 }
 
-function showModal(contianer, window, visibility, opacity, display)
+function setModal(contianer, window, visibility, opacity, display)
 {
     contianer.style.visibility = visibility;
     contianer.style.opacity = opacity;
@@ -46,20 +51,28 @@ function getListCWEs(element)
     const formData = new FormData();
     formData.append("chooseRandom", "ok");
     formData.append("listCWEs", JSON.stringify(listCWEs)); // apply json stringify to convert an array to a string and be able to pass it in a request
-
-    let objOptionsFetch =   {
-        method: "POST",
-        headers: new Headers(),
-        body: formData
-    }
-
-    fetchRequest("middleware/universalController.php", objOptionsFetch).then(data => {
+    
+    fetchRequest("middleware/universalController.php", setObjectRequest("POST", new Headers(), formData)).then(data => {
         let div = document.createElement("div");
-        div.setAttribute("class", "alert alert-primary");
-        div.innerText = "El elegido fue: " + data;
-        parentNode.appendChild(div);
+        showAlertInfo(div, "class", "alert alert-primary", data, parentNode);
     });
 
+}
+
+function setObjectRequest(methodHttp, headers, data)
+{
+    return {
+        method: methodHttp,
+        headers: headers,
+        body: data
+    };
+}
+
+function showAlertInfo(tag, attribute, nameAttribute = "", text, tagApeendChild)
+{
+    tag.setAttribute(attribute, nameAttribute);
+    tag.innerText = "El elegido fue: " + text;
+    tagApeendChild.appendChild(tag);
 }
 
 function getParentNode(element)
@@ -67,8 +80,14 @@ function getParentNode(element)
     return element.parentNode;
 }
 
+function checkListCWEsFull()
+{
+    if(listCWEs.length > 0) listCWEs = [];
+}
+
 function pushElementsList(list)
 {
+    checkListCWEsFull();
     for (let index = 0; index < list.length; index++)
     {
         const element = list[index];
