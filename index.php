@@ -34,7 +34,6 @@
     <?php
         echo $objInsertHtml->modaltHtml;
     ?>
-
     <!-- HTML of Roulette Wheel -->
     <script src="js/index.js"></script>
     <script src="js/modal.js"></script>

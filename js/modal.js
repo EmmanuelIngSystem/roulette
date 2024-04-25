@@ -8,10 +8,10 @@ function toggleModal(element)
     const cardContainer = document.querySelector("#card-container-"+element);
     const modalWindow = document.querySelector("#modal-window-"+element);
     
-    // Agregar la clase 'open-modal' al body para activar los estilos
-    body.classList.toggle('open-modal'); // .add => agregar, .remove remover, .toggle agregar y/o remover
+    // Add or remove 'open-modal' class to body to activate styles
+    body.classList.toggle('open-modal');
 
-    // Comprobar si esta escondido el modal contenedor y su opacidad
+    // Check if the container modal is hidden or not
     if(modalContainer.style.visibility == 'hidden' && modalContainer.style.opacity == '0' 
         || 
         modalContainer.style.visibility == '' && modalContainer.style.opacity == '')
@@ -45,7 +45,7 @@ function getListCWEs(element)
     pushElementsList(lis);
     const formData = new FormData();
     formData.append("chooseRandom", "ok");
-    formData.append("listCWEs", JSON.stringify(listCWEs)); // aplicar json stringify para convertir un arreglo a cadena y poder pasarlo en un request
+    formData.append("listCWEs", JSON.stringify(listCWEs)); // apply json stringify to convert an array to a string and be able to pass it in a request
 
     let objOptionsFetch =   {
         method: "POST",

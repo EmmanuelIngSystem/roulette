@@ -28,7 +28,7 @@ class helperGeneral
         return preg_match($this->patternTopTenOWASP, $str);
     }
 
-    // evalua que lista de mapa va setear
+    // Evaluate which map list to set
     public function setListMappedValueCWEs(string $value): array
     {
         if(str_contains($value, "A01_2021")) return ["CWE-35"," CWE-59", "CWE-200", "CWE-201", "CWE-219", "CWE-264", "CWE-275", "CWE-276", "CWE-284", "CWE-285", "CWE-352", "CWE-359", "CWE-377", "CWE-402", "CWE-425", "CWE-441", "CWE-497", "CWE-538", "CWE-540", "CWE-548", "CWE-552", "CWE-566", "CWE-601", "CWE-639", "CWE-651", "CWE-668", "CWE-706", "CWE-862", "CWE-863", "CWE-913", "CWE-922", "CWE-1275"];

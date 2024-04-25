@@ -1,4 +1,4 @@
-/* referencia del css: https://codepen.io/aldicodes/pen/poBPEQr */
+/* css reference: https://codepen.io/aldicodes/pen/poBPEQr */
 .modal-window,
 .modal-container {
     transition: 0.5s;
@@ -31,24 +31,6 @@
     background: rgba(0, 0, 0, 0.8);
 }
 
-/*
-body.open-modal .modal-container {
-    visibility: visible;
-    opacity: 1;
-}
-
-body.open-modal .card-container {
-    animation: card-container-in 1s both;
-}
-
-body.open-modal > .main-container {
-    scale: 0.75;
-}
-
-body.open-modal .modal-window {
-    animation: modal-window-in 1s both;
-}
-*/
 h2 {
     margin: 0 0 8px;
     font-weight: 900;
